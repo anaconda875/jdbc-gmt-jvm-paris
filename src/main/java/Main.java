@@ -19,16 +19,20 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		TimeZone.setDefault( TimeZone.getTimeZone( ZoneId.of( "Europe/Paris" ) ) );
+		LocalDateTime d_1900_01_01_T_00_09_23 = LocalDateTime.of( 1900, 1, 1, 0, 9, 23, 0 );
 		LocalDateTime d_1900_01_01_T_00_09_22 = LocalDateTime.of( 1900, 1, 1, 0, 9, 22, 0 );
 		LocalDateTime d_1900_01_01_T_00_09_21 = LocalDateTime.of( 1900, 1, 1, 0, 9, 21, 0 );
 		LocalDateTime d_1900_01_01_T_00_09_20 = LocalDateTime.of( 1900, 1, 1, 0, 9, 20, 0 );
+		LocalDateTime d_1900_01_01_T_00_09_19 = LocalDateTime.of( 1900, 1, 1, 0, 9, 19, 0 );
 
 		try(Connection c = DriverManager.getConnection( "jdbc:postgresql://localhost:5432/hibernate_orm_test?preparedStatementCacheQueries=0&escapeSyntaxCallMode=callIfNoReturn",
 																										"postgres", "root")) {
 			PreparedStatement p = c.prepareStatement( "insert into theentity values(?, ?)" );
-			bindAndExecute( p, 1, d_1900_01_01_T_00_09_22 );
-			bindAndExecute( p, 2, d_1900_01_01_T_00_09_21 );
-			bindAndExecute( p, 3, d_1900_01_01_T_00_09_20 );
+			bindAndExecute( p, 1, d_1900_01_01_T_00_09_23 );
+			bindAndExecute( p, 2, d_1900_01_01_T_00_09_22 );
+			bindAndExecute( p, 3, d_1900_01_01_T_00_09_21 );
+			bindAndExecute( p, 4, d_1900_01_01_T_00_09_20 );
+			bindAndExecute( p, 5, d_1900_01_01_T_00_09_19 );
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
