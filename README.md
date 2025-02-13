@@ -1,3 +1,13 @@
+Table:
+```sql
+create table theentity (
+        theid integer not null,
+        thevalue timestamp(6),
+        primary key (theid)
+)
+```
+Result:
+
 ```
 theid |      thevalue       
 -------+---------------------
